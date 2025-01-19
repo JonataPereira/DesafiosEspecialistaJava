@@ -1,25 +1,23 @@
-import java.util.Scanner;
+
 
 
 public class Main {
     public static void main(String[] args) {
 
         FolhaPagamento julius = new FolhaPagamento();
+        Funcionario funcionario = new Funcionario();
+        funcionario.nome = "Julius";
+        funcionario.quantidadeFilhos = 0;
 
-        Scanner sc = new Scanner(System.in);
 
-        System.out.println("Digite o valor do Salario");
-        julius.salario = sc.nextDouble();
+        ContratoTrabalho contrato = new ContratoTrabalho();
+        contrato.funcionario = funcionario;
+        contrato.valorHora = 45.45;
+        contrato.valorHorasExtra = 68;
 
-        System.out.println("Digite a Quantidade de horas normais trabalhadas");
-        julius.horasTrabalhadas = sc.nextInt();
+        double salarioDevido = julius.calcularSalario(220,36,contrato);
 
-        System.out.println("Digite a Quantidade de horas extras trabalhadas");
-        julius.horasExtrastrabalhadas = sc.nextInt();
-
-        System.out.printf("O salario devido é %.2f", julius.calcularSalario());
-
-        sc.close();
+        System.out.printf("Salario devido: %.2f\n",salarioDevido);
 
         }
     }
